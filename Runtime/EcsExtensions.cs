@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Runtime
+namespace EcsExtensions.Runtime
 {
     public static class EcsExtensions
     {
@@ -11,8 +11,8 @@ namespace Runtime
             return world?.GetOrCreateSystem<T>();
         }
 
-        public static ComponentSystemBase GetC<T>(this World world)
-            where T : ComponentSystemBase
+        public static ComponentSystem GetC<T>(this World world)
+            where T : ComponentSystem
         {
             return world?.GetOrCreateSystem<T>();
         }
