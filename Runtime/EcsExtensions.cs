@@ -5,18 +5,6 @@ namespace EcsExtensions.Runtime
 {
     public static class EcsExtensions
     {
-        public static SystemBase Get<T>(this World world)
-            where T : SystemBase
-        {
-            return world?.GetOrCreateSystem<T>();
-        }
-
-        public static ComponentSystem GetC<T>(this World world)
-            where T : ComponentSystem
-        {
-            return world?.GetOrCreateSystem<T>();
-        }
-
         public static void Set<T>(this EntityManager entityManager, Entity entity, T component)
             where T : struct, IComponentData
         {
@@ -29,7 +17,6 @@ namespace EcsExtensions.Runtime
                 entityManager.AddComponentData<T>(entity, component);
             }
         }
-
 
         public static bool TryGet<T>(this EntityManager entityManager, Entity entity, out T component)
             where T : struct, IComponentData
@@ -55,6 +42,18 @@ namespace EcsExtensions.Runtime
 
             component = entityManager.GetComponentObject<T>(entity);
             return true;
+        }
+
+        public static bool Remove<T>(this EntityManager entityManager, Entity entity)
+            where T : struct, IComponentData
+        {
+            if (entityManager.HasComponent<T>(entity))
+            {
+                entityManager.RemoveComponent<T>(entity);
+                return true;
+            }
+
+            return false;
         }
     }
 }
