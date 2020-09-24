@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace Code.Engine.Ecs
+namespace Runtime
 {
     public static class EcsExtensions
     {
