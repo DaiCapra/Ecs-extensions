@@ -11,6 +11,12 @@ namespace Runtime
             return world?.GetOrCreateSystem<T>();
         }
 
+        public static ComponentSystemBase GetC<T>(this World world)
+            where T : ComponentSystemBase
+        {
+            return world?.GetOrCreateSystem<T>();
+        }
+
         public static void Set<T>(this EntityManager entityManager, Entity entity, T component)
             where T : struct, IComponentData
         {
