@@ -1,0 +1,10 @@
+{
+	"name":"com.artmann.ecs-extensions",
+	"version":"1.0.0",
+	"displayName":"Ecs extensions",
+	"dependencies":
+	  {
+	     "com.unity.entities": "0.14.0-preview.19",
+	  }
+}
+
