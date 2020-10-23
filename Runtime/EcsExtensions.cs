@@ -5,6 +5,12 @@ namespace EcsExtensions.Runtime
 {
     public static class EcsExtensions
     {
+        public static T Get<T>(this SystemBase system) where T : ComponentSystemBase
+        {
+            return system.World.GetOrCreateSystem<T>();
+        }
+
+
         public static void Set<T>(this EntityManager entityManager, Entity entity, T component)
             where T : struct, IComponentData
         {
