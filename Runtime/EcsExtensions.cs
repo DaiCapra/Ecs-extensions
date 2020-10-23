@@ -5,7 +5,7 @@ namespace EcsExtensions.Runtime
 {
     public static class EcsExtensions
     {
-        public static T Get<T>(this SystemBase system) where T : ComponentSystemBase
+        public static T Inject<T>(this SystemBase system) where T : ComponentSystemBase
         {
             return system.World.GetOrCreateSystem<T>();
         }
